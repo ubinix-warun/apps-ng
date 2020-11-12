@@ -43,7 +43,7 @@ const HeaderSection = () => {
 
   return <Container>
     <HeaderSectionWrapper>
-      <Header>{t('Credentials')}</Header>
+      <Header>{t('Tuna Ledger')}</Header>
       <AccountLine>{account.address}</AccountLine>
     </HeaderSectionWrapper>
   </Container>

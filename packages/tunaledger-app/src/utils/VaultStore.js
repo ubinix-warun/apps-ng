@@ -1,7 +1,7 @@
 import { types, flow } from 'mobx-state-tree'
 import { createPersistStore } from '@/store/store'
 
-export const CONTRACT_PASSWORD_MANAGER = 6;
+export const CONTRACT_TUNA_LEDGER = 6;
 
 const anyType = types.custom({
   isTargetType: () => true,
@@ -13,7 +13,7 @@ const anyType = types.custom({
 export const createVaultStore = (defaultValue = {}, options = {}) => {
   const VaultStore = types
     .model('VaultStore', {
-      logins: types.array(anyType),
+      tunas: types.array(anyType),
       error: types.maybeNull(anyType)
     })
     .views(self => ({
@@ -34,23 +34,13 @@ export const createVaultStore = (defaultValue = {}, options = {}) => {
       },
     }))
     .actions(self => ({
-    //   setCredential (website, email, password) {
-    //     self.website = website;
-    //     self.email = email;
-    //     self.password = password
-    //   },
-    //   async queryPassword (runtime) {
-    //     return await runtime.query(CONTRACT_PASSWORD_MANAGER, 'GetCredential')
-    //   },
-    //   updateLogins: flow(function* () {
-    //     const res = yield self.appRuntime.query(
-    //       CONTRACT_PASSWORD_MANAGER,
-    //       'ListLogins',
-    //       () => ({ availableOnly: false })
-    //     )
-    //     self.logins = (res?.ListLogins?.logins || []).reverse()
-    //     self.metadata = (res?.ListLogins?.metadata || []).reverse()
-    //   })
+      updateTunas: flow(function* () { // updateLogins
+        const res = yield self.appRuntime.query(
+          CONTRACT_TUNA_LEDGER,
+          'QueryAll'
+        )
+        self.tunas = (res?.QueryAll?.tunas || []).reverse()
+      })
     }))
 
   //return VaultStore.create(defaultValue)

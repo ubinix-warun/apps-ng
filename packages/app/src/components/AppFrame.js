@@ -90,7 +90,7 @@ const NavBar = () => {
       <NavItemSpacer />
       <NavBarButton href="HELLOWORLDAPP" name={t('App')} icon={BoxIcon} />
       <NavItemSpacer />
-      <NavBarButton href="TUNALEDGER" name={t('App')} icon={LockIcon} />
+      <NavBarButton href="TUNALEDGERAPP" name={t('Tuna Ledger')} icon={LockIcon} />
       <NavItemSpacer />
       <NavBarButtonWrapper onClick={() => window.open('/legacy.html', '_blank')}>
         <SidebarIcon size={21} />

@@ -1,12 +1,12 @@
 import React from 'react'
 import HeaderSection from './HeaderSection'
-// import NewSection from './NewSection'
-// import LoginSection from './LoginSection'
+import TunaSection from './TunaSection'
+import NewSection from './NewSection'
 
 export default () => {
   return <>
     <HeaderSection />
-    {/* <NewSection /> */}
-    {/* <LoginSection /> */}
+    <NewSection />
+    <TunaSection />
   </>
 } 
